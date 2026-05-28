@@ -1,6 +1,5 @@
 package com.puce.bryantaco.students
 
-
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 

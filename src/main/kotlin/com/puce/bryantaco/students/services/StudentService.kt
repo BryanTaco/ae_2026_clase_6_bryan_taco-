@@ -1,9 +1,10 @@
 package com.puce.bryantaco.students.services
 
-
 import com.puce.bryantaco.students.dto.StudentRequest
 import com.puce.bryantaco.students.dto.StudentResponse
 import com.puce.bryantaco.students.entities.Student
+import com.puce.bryantaco.students.mappers.toEntity
+import com.puce.bryantaco.students.mappers.toResponse
 import com.puce.bryantaco.students.repositories.StudentRepository
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
@@ -17,32 +18,18 @@ class StudentService(
     fun createStudent(request: StudentRequest): StudentResponse {
         logger.info("Creating Student ${request.name}")
 
-        val studentEntity = Student(
-            name = request.name,
-            email = request.email
-        )
+        val studentToSave = request.toEntity()
+        val savedStudent = studentRepository.save(studentToSave)
 
-        val savedStudent = studentRepository.save(studentEntity)
+        logger.info("Save student with id ${savedStudent.id}")
+        return savedStudent.toResponse()
+    } // ← closes createStudent
 
-        return StudentResponse(
-            id = savedStudent.id,
-            name = savedStudent.name,
-            email = savedStudent.email
-        )
-    }
-
-    open fun getAllStudents(): List<StudentResponse> {
+    fun getAllStudents(): List<StudentResponse> {
         logger.info("Getting all students")
 
-
-        val saveStudents= studentRepository.findAll()
-
-        return saveStudents.map{
-            StudentResponse(
-                id = it.id,
-                name = it.name,
-                email = it.email
-            )
-        }
+        val savedStudents = studentRepository.findAll()
+        return savedStudents.map { it.toResponse() }
     }
+
 }
