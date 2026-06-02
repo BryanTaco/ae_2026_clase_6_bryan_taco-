@@ -2,7 +2,6 @@ package com.puce.bryantaco.students.services
 
 import com.puce.bryantaco.students.dto.StudentRequest
 import com.puce.bryantaco.students.dto.StudentResponse
-import com.puce.bryantaco.students.entities.Student
 import com.puce.bryantaco.students.mappers.toEntity
 import com.puce.bryantaco.students.mappers.toResponse
 import com.puce.bryantaco.students.repositories.StudentRepository
@@ -16,20 +15,15 @@ class StudentService(
     private val logger = LoggerFactory.getLogger(StudentService::class.java)
 
     fun createStudent(request: StudentRequest): StudentResponse {
-        logger.info("Creating Student ${request.name}")
-
+        logger.info("Creating student: ${request.name}")
         val studentToSave = request.toEntity()
         val savedStudent = studentRepository.save(studentToSave)
-
-        logger.info("Save student with id ${savedStudent.id}")
+        logger.info("Student saved with id: ${savedStudent.id}")
         return savedStudent.toResponse()
-    } // ← closes createStudent
+    }
 
     fun getAllStudents(): List<StudentResponse> {
         logger.info("Getting all students")
-
-        val savedStudents = studentRepository.findAll()
-        return savedStudents.map { it.toResponse() }
+        return studentRepository.findAll().map { it.toResponse() }
     }
-
 }

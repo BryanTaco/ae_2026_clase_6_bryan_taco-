@@ -1,0 +1,40 @@
+{
+  "info": {
+    "name": "Students API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Crear Estudiante",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Ana Torres\",\n  \"email\": \"ana.torres@email.com\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/students",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["students"]
+        }
+      }
+    },
+    {
+      "name": "Listar Estudiantes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/students",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["students"]
+        }
+      }
+    }
+  ]
+}
