@@ -1,0 +1,214 @@
+{
+  "info": {
+    "name": "Students API - CRUD Completo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8787"
+    }
+  ],
+  "item": [
+    {
+      "name": "Students",
+      "item": [
+        {
+          "name": "POST - Crear estudiante",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/students",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Ana Torres\",\n  \"email\": \"ana@puce.edu.ec\"\n}"
+            }
+          }
+        },
+        {
+          "name": "GET - Listar todos los estudiantes",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/students"
+          }
+        },
+        {
+          "name": "GET - Obtener estudiante por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/students/1"
+          }
+        },
+        {
+          "name": "PUT - Actualizar estudiante",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/students/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Ana Torres Ruiz\",\n  \"email\": \"ana.torres@puce.edu.ec\"\n}"
+            }
+          }
+        },
+        {
+          "name": "DELETE - Eliminar estudiante",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/students/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Professors",
+      "item": [
+        {
+          "name": "POST - Crear profesor",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/professors",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dr. García\",\n  \"email\": \"garcia@puce.edu.ec\"\n}"
+            }
+          }
+        },
+        {
+          "name": "GET - Listar todos los profesores",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/professors"
+          }
+        },
+        {
+          "name": "GET - Obtener profesor por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/professors/1"
+          }
+        },
+        {
+          "name": "PUT - Actualizar profesor",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/professors/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dr. García López\",\n  \"email\": \"garcia.lopez@puce.edu.ec\"\n}"
+            }
+          }
+        },
+        {
+          "name": "DELETE - Eliminar profesor",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/professors/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Subjects",
+      "item": [
+        {
+          "name": "POST - Crear materia",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/subjects",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Arquitectura Empresarial\",\n  \"code\": \"AE-101\",\n  \"professorId\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "GET - Listar todas las materias",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/subjects"
+          }
+        },
+        {
+          "name": "GET - Obtener materia por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/subjects/1"
+          }
+        },
+        {
+          "name": "PUT - Actualizar materia",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/subjects/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Arquitectura Empresarial Avanzada\",\n  \"code\": \"AE-201\",\n  \"professorId\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "DELETE - Eliminar materia",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/subjects/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Enrollments",
+      "item": [
+        {
+          "name": "POST - Inscribir estudiante",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/enrollments",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"studentId\": 1,\n  \"subjectId\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "GET - Listar todas las inscripciones",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/enrollments"
+          }
+        },
+        {
+          "name": "GET - Obtener inscripción por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/enrollments/1"
+          }
+        },
+        {
+          "name": "PUT - Actualizar estado de inscripción",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/enrollments/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"APROBADO\"\n}"
+            }
+          }
+        },
+        {
+          "name": "DELETE - Eliminar inscripción",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/enrollments/1"
+          }
+        }
+      ]
+    }
+  ]
+}
