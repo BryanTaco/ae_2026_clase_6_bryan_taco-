@@ -141,5 +141,5 @@ class StudentServiceTest {
         studentService.deleteStudent(1L)
 
         verify(studentRepository).deleteById(1L)
-    }
+    }ﬁ
 }
